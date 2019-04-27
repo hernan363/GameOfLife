@@ -10,11 +10,14 @@ class prompt {
   private:
     fileReader newGrid;
     string fileName;
-    void firstPrompt(string fileName);
+    void firstPrompt();
 
   public:
+    grid g1;
+
     prompt();
     ~prompt();
+
 
 };
 #endif

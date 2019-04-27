@@ -4,23 +4,23 @@
 #include <iostream>
 #include <fstream>
 #include <map>
+#include "grid.h"
 
 using namespace std;
 
 class fileReader {
   private:
 
-    const string fileName;
+    string fileName;
     ifstream myFile;
     string line;
-    int height;
-    int width;
   public:
+    fileReader();
+
     fileReader(string targetFile);
     ~fileReader();
-    map<int,int,bool> readFile();
-    map<int,int,bool> gridToFalse(int height, int width);
-    fileReader();
+    grid readFile(grid thisGrid);
+    // grid gridToFalse(int height, int width);
 
 
 

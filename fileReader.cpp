@@ -4,57 +4,45 @@
 #include "fileReader.h"
 
 fileReader::fileReader(){
-  const string fileName = "";
+  fileName = "";
   line = "";
-  height = 0;
-
 }
 
 fileReader::fileReader(string targetFile) {
-  const string fileName = targetFile;
+  fileName = targetFile;
   line = "";
-  height = 0;
-  width = 0;
 }
 
 fileReader::~fileReader(){}
 //Opens a file and creates the grid in the file into an array
-map<int,int,bool> fileReader::readFile() {
-  map<int,int,bool> grid;
-  map<int,int,bool>::iterator it = grid.begin();
+grid fileReader::readFile(grid thisGrid) {
+  // map<pair<int,int>,bool> falseItems;
+  cout << fileName << "File Name" << endl;
+  myFile.open(fileName.c_str()); //opening file
+
   //height
   getline(myFile, line);
+  cout << line << endl;
+  thisGrid.height = stoi(line);
+
 
   //width
   getline(myFile, line);
+  thisGrid.width = stoi(line);
 
-  myFile.open(fileName); //opening file
+  int j = -1;
   //O(N*M) where N is the number of lines and M is the length of the Line
-  for(int i = 0; i < height; ++i) {
-    for(int i = 0; i < line.length(); ++i) {
-      if(line[i] == '-') {
-        grid[height][i] == false;
-      }
-      else {
-        grid[height][i] == true;
+  while(getline(myFile, line)) {
+    j += 1;
+    for(int i = 0; i < line.length(); ++i){
+      if(toupper(line[i]) == 'X') {
+        thisGrid.trueSlots[make_pair(j,i)] = true;
       }
     }
-    height += 1;
   }
+
   myFile.close(); //closing file
-  return grid;
-}
-
-
-//sets all values to false;
-map<int,int,bool> fileReader::gridToFalse(int height, int width) {
-  bool** newGrid[height];
-  for(int i = 0; i  < height; ++i) {
-    newGrid[i] = new bool[width];
-    for(int j =0; j < width; ++j) {
-      newGrid[i][j] = false;
-    }
-  }
+  return thisGrid;
 }
 
 
