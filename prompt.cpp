@@ -24,7 +24,7 @@ void prompt::firstPrompt() {
 
   g1 = fr.readFile(g1);
   g1.setGridsToFalse();
-  g1.fillGridWithTrue();
+  g1.mapToGrid();
   g1.printAll();
 
 }

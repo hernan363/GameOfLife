@@ -36,7 +36,7 @@ grid fileReader::readFile(grid thisGrid) {
     j += 1;
     for(int i = 0; i < line.length(); ++i){
       if(toupper(line[i]) == 'X') {
-        thisGrid.trueSlots[make_pair(j,i)] = true;
+        thisGrid.trueSlotsPrimary[make_pair(j,i)] = 3;
       }
     }
   }

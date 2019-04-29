@@ -21,7 +21,7 @@ void grid::setGridsToFalse() {
   for(int i = 0; i < height; ++i) {
     gridPrimary[i] = new bool[width];
     gridSecondary[i] = new bool[width];
-    
+
     for(int j = 0; j < width; ++j){
       gridPrimary[i][j] = false;
       gridSecondary[i][j] = false;
@@ -29,9 +29,20 @@ void grid::setGridsToFalse() {
   }
 }
 
-void grid::fillGridWithTrue(){
-  for(iterator = trueSlots.begin(); iterator != trueSlots.end();++iterator) {
-    gridPrimary[iterator->first.first][iterator->first.second] = true;
+void grid::mapToGrid(){
+  for(iteratorPrimary = trueSlotsPrimary.begin(); iteratorPrimary != trueSlotsPrimary.end();++iteratorPrimary) {
+    if(iteratorPrimary->second <= 1 ) {
+      gridPrimary[iteratorPrimary->first.first][iteratorPrimary->first.second] = false;
+    }
+
+    else if(iteratorPrimary->second == 3 ) {
+      gridPrimary[iteratorPrimary->first.first][iteratorPrimary->first.second] = true;
+
+    }
+
+    else if(iteratorPrimary->second >= 4 ) {
+      gridPrimary[iteratorPrimary->first.first][iteratorPrimary->first.second] = false;
+    }
   }
 }
 
@@ -42,8 +53,8 @@ void grid::fillGridWithTrue(){
 
 
 void grid::printAll(){
-  for(iterator = trueSlots.begin(); iterator != trueSlots.end();++iterator) {
-    cout << iterator->first.first << " : " << iterator->first.second << endl;
+  for(iteratorPrimary = trueSlotsPrimary.begin(); iteratorPrimary != trueSlotsPrimary.end();++iteratorPrimary) {
+    cout << iteratorPrimary->first.first << " : " << iteratorPrimary->first.second << endl;
   }
   for(int i = 0; i < height; ++i) {
     for(int j = 0; j < width; ++j){

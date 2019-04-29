@@ -10,8 +10,10 @@ class grid {
 public:
   bool** gridPrimary;
   bool** gridSecondary;
-  map<pair<int,int>,bool> trueSlots;
-  map<pair<int,int>,bool>::iterator iterator;
+  map<pair<int,int>,int> trueSlotsPrimary;
+  map<pair<int,int>,int> trueSlotsSecondary;
+  map<pair<int,int>,int>::iterator iteratorPrimary;
+  map<pair<int,int>,int>::iterator iteratorSecondary;
 
 
   int height;
@@ -21,7 +23,7 @@ public:
   ~grid();
 
   void printAll();
-  void fillGridWithTrue();
+  void mapToGrid();
   void setGridsToFalse();
 
 
