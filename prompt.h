@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include "fileReader.h"
+#include "classic.h"
 
 using namespace std;
 
@@ -13,6 +14,7 @@ class prompt {
     void firstPrompt();
 
   public:
+    classic c1;
     grid g1;
 
     prompt();

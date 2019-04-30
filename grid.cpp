@@ -53,12 +53,18 @@ void grid::mapToGrid(){
 
 
 void grid::printAll(){
-  for(iteratorPrimary = trueSlotsPrimary.begin(); iteratorPrimary != trueSlotsPrimary.end();++iteratorPrimary) {
-    cout << iteratorPrimary->first.first << " : " << iteratorPrimary->first.second << endl;
-  }
+  // for(iteratorPrimary = trueSlotsPrimary.begin(); iteratorPrimary != trueSlotsPrimary.end();++iteratorPrimary) {
+  //   cout << iteratorPrimary->first.first << " : " << iteratorPrimary->first.second <<  " : " << iteratorPrimary->second << endl;
+  // }
   for(int i = 0; i < height; ++i) {
     for(int j = 0; j < width; ++j){
-      cout << gridPrimary[i][j];
+      if(gridPrimary[i][j] == true) {
+        cout << "X";
+
+      }
+      else {
+        cout << "-";
+      }
     }
     cout <<endl;
   }
