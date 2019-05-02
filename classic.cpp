@@ -15,8 +15,8 @@ map<pair<int,int>,int> classic::classicNeighborCount(grid g1) {
   for(g1.iteratorPrimary = g1.trueSlotsPrimary.begin(); g1.iteratorPrimary != g1.trueSlotsPrimary.end(); ++g1.iteratorPrimary) {
     if(g1.gridPrimary[g1.iteratorPrimary->first.first][g1.iteratorPrimary->first.second] == true) {
 
-    for(int i = -1; i < 2; ++ i) {
-      for( int j = -1; j < 2; ++j) {
+      for(int i = -1; i < 2; ++ i) {
+        for( int j = -1; j < 2; ++j) {
 
             if( g1.iteratorPrimary->first.first+i < 0 || g1.iteratorPrimary->first.first+i >= g1.height) {
               continue;
@@ -41,8 +41,8 @@ map<pair<int,int>,int> classic::classicNeighborCount(grid g1) {
                 // cout << "created a new pair!!!"<< endl;
               }
             }
+          }
         }
-      }
     }
   }
   // for(tempMapIt = tempMap.begin(); tempMapIt != tempMap.end();++tempMapIt) {

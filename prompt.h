@@ -4,6 +4,7 @@
 #include <iostream>
 #include "fileReader.h"
 #include "classic.h"
+#include "doughnut.h"
 
 using namespace std;
 
@@ -16,6 +17,7 @@ class prompt {
   public:
     classic c1;
     grid g1;
+    doughnut d1;
 
     prompt();
     ~prompt();

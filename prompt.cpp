@@ -27,8 +27,8 @@ void prompt::firstPrompt() {
   g1.mapToGrid();
   g1.printAll();
 
-  for(int i = 0; i  < 10; ++ i) {
-    g1.trueSlotsPrimary = c1.classicNeighborCount(g1);
+  for(int i = 0; i  < 20; ++ i) {
+    g1.trueSlotsPrimary = d1.doughnutNeighborCount(g1);
     g1.mapToGrid();
     g1.printAll();
   }
