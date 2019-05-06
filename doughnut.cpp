@@ -6,6 +6,7 @@
 doughnut::doughnut(){}
 doughnut::~doughnut(){}
 
+
 map<pair<int,int>,int> doughnut::doughnutNeighborCount(grid g1) {
   map<pair<int,int>,int> tempMap;
   map<pair<int,int>,int>::iterator tempMapIt;
@@ -21,76 +22,38 @@ map<pair<int,int>,int> doughnut::doughnutNeighborCount(grid g1) {
           //above height, 0 && height,width
             else if( g1.iteratorPrimary->first.first+i >= g1.height) {
               if(g1.iteratorPrimary->first.second+j < 0) {
-                if(tempMap[make_pair(0,g1.width+j)] += 1) {
-                }
-                else {
-                  tempMap[make_pair(0,g1.iteratorPrimary->first.second+j)] = 1;
-                }
+                tempMap[make_pair(0,g1.width+j)] += 1;
               }
               else if(g1.iteratorPrimary->first.second+j >= g1.width) {
-                if(tempMap[make_pair(0,0)] += 1) {
-                }
-                else {
-                  tempMap[make_pair(0,0)] = 1;
-                }
+                tempMap[make_pair(0,0)] += 1;
               }
               else {
-                if(tempMap[make_pair(0,g1.iteratorPrimary->first.second+j)] += 1) {
-                }
-                else {
-                  tempMap[make_pair(0,g1.iteratorPrimary->first.second+j)] = 1;
-                }
+                tempMap[make_pair(0,g1.iteratorPrimary->first.second+j)] += 1;
               }
             }
 
             // 0, width && 0,0
             else if( g1.iteratorPrimary->first.first+i < 0) {
               if(g1.iteratorPrimary->first.second+j >= g1.width) {
-                if(tempMap[make_pair(g1.height+i,0)] += 1) {
-                }
-                else {
-                  tempMap[make_pair(g1.height+i,0)] = 1;
-                }
+                tempMap[make_pair(g1.height+i,0)] += 1;
               }
               else if(g1.iteratorPrimary->first.second+j < 0) {
-                if(tempMap[make_pair(g1.height+i,g1.width+j)] += 1) {
-                }
-                else {
-                  tempMap[make_pair(g1.height+i,g1.width+j)] = 1;
-                }
+                tempMap[make_pair(g1.height+i,g1.width+j)] += 1;
               }
               else{
-                if(tempMap[make_pair(g1.height-1,g1.iteratorPrimary->first.second+j)] += 1) {
-                }
-                else {
-                  tempMap[make_pair(g1.height-1,g1.iteratorPrimary->first.second+j)] = 1;
-                }
+                tempMap[make_pair(g1.height-1,g1.iteratorPrimary->first.second+j)] += 1;
               }
             }
             //left side
             else if(g1.iteratorPrimary->first.second+j < 0 ) {
-              if(tempMap[make_pair(g1.iteratorPrimary->first.first+i, g1.width+j)] += 1) {
-              }
-              else {
-                tempMap[make_pair(g1.iteratorPrimary->first.first+i, g1.width+j)] = 1;
-              }
+              tempMap[make_pair(g1.iteratorPrimary->first.first+i, g1.width+j)] += 1;
             }
             //right side
             else if(g1.iteratorPrimary->first.second+j >= g1.width) {
-              if(tempMap[make_pair(g1.iteratorPrimary->first.first+i, 0)] += 1) {
-              }
-              else {
-                tempMap[make_pair(g1.iteratorPrimary->first.first+i, 0)] = 1;
-              }
+              tempMap[make_pair(g1.iteratorPrimary->first.first+i, 0)] += 1;
             }
             else {
-              if(tempMap[make_pair(g1.iteratorPrimary->first.first+i,g1.iteratorPrimary->first.second+j)] != false) {
-                tempMap[make_pair(g1.iteratorPrimary->first.first+i,g1.iteratorPrimary->first.second+j)] += 1;
-              }
-              //if there is no entry inside the tempMap
-              else {
-                tempMap[make_pair(g1.iteratorPrimary->first.first+i,g1.iteratorPrimary->first.second+j)] = 1;
-              }
+              tempMap[make_pair(g1.iteratorPrimary->first.first+i,g1.iteratorPrimary->first.second+j)] += 1;
             }
           }
         }

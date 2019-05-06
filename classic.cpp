@@ -31,15 +31,17 @@ map<pair<int,int>,int> classic::classicNeighborCount(grid g1) {
             }
 
             else {
-              if(tempMap[make_pair(g1.iteratorPrimary->first.first+i,g1.iteratorPrimary->first.second+j)] != false) {
-                tempMap[make_pair(g1.iteratorPrimary->first.first+i,g1.iteratorPrimary->first.second+j)] += 1;
-                // cout << "Added to the count!!!" << endl;
-              }
-              //if there is no entry inside the tempMap
-              else {
-                tempMap[make_pair(g1.iteratorPrimary->first.first+i,g1.iteratorPrimary->first.second+j)] = 1;
-                // cout << "created a new pair!!!"<< endl;
-              }
+              tempMap[make_pair(g1.iteratorPrimary->first.first+i,g1.iteratorPrimary->first.second+j)] += 1;
+
+              // if(tempMap[make_pair(g1.iteratorPrimary->first.first+i,g1.iteratorPrimary->first.second+j)] != false) {
+              //   tempMap[make_pair(g1.iteratorPrimary->first.first+i,g1.iteratorPrimary->first.second+j)] += 1;
+              //   // cout << "Added to the count!!!" << endl;
+              // }
+              // //if there is no entry inside the tempMap
+              // else {
+              //   tempMap[make_pair(g1.iteratorPrimary->first.first+i,g1.iteratorPrimary->first.second+j)] = 1;
+              //   // cout << "created a new pair!!!"<< endl;
+              // }
             }
           }
         }
