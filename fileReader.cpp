@@ -9,17 +9,13 @@ fileReader::fileReader(){
 }
 
 fileReader::fileReader(string targetFile) {
-  fileName = targetFile;
+  // myFile = targetFile;
   line = "";
 }
 
 fileReader::~fileReader(){}
 //Opens a file and creates the grid in the file into an array
-grid fileReader::readFile(grid thisGrid) {
-  // map<pair<int,int>,bool> falseItems;
-  cout << fileName << "File Name" << endl;
-  myFile.open(fileName.c_str()); //opening file
-
+grid fileReader::readFile(grid thisGrid, ifstream& myFile) {
   //height
   getline(myFile, line);
   cout << line << endl;

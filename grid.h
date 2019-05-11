@@ -3,6 +3,7 @@
 
 #include <map>
 #include <iostream>
+#include <stdlib.h>
 
 using namespace std;
 
@@ -18,13 +19,19 @@ public:
 
   int height;
   int width;
+  int popPercent;
+  int ranNum1;
+  int ranNum2;
 
   grid();
   ~grid();
+  void setGridSecondary();
 
   void printAll();
   void mapToGrid();
   void setGridsToFalse();
+  bool compareGrids();
+  void randomGenerateMap();
 
 
 private:

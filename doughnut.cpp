@@ -19,7 +19,7 @@ map<pair<int,int>,int> doughnut::doughnutNeighborCount(grid g1) {
           //above 0,0
             if( g1.iteratorPrimary->first.first+i == g1.iteratorPrimary->first.first && g1.iteratorPrimary->first.second+j == g1.iteratorPrimary->first.second) {
             }
-          //above height, 0 && height,width
+          //above height,0 && height,width
             else if( g1.iteratorPrimary->first.first+i >= g1.height) {
               if(g1.iteratorPrimary->first.second+j < 0) {
                 tempMap[make_pair(0,g1.width+j)] += 1;
@@ -32,7 +32,7 @@ map<pair<int,int>,int> doughnut::doughnutNeighborCount(grid g1) {
               }
             }
 
-            // 0, width && 0,0
+            // 0,width && 0,0
             else if( g1.iteratorPrimary->first.first+i < 0) {
               if(g1.iteratorPrimary->first.second+j >= g1.width) {
                 tempMap[make_pair(g1.height+i,0)] += 1;
