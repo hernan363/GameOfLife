@@ -154,8 +154,7 @@ string prompt::outputFileToString(string tempString) {
     for(int j = 0; j < g1.width; ++j) {
       if(g1.gridPrimary[i][j] == false) {
         tempString.append("-");
-      }
-      else {
+      } else {
         tempString.append("X");
       }
     }
@@ -191,7 +190,4 @@ void prompt::simulationWithPauses(int counter) {
     ++counter;
   }
 }
-
-
-
 #endif

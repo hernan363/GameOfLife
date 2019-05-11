@@ -12,16 +12,11 @@ public:
   bool** gridPrimary;
   bool** gridSecondary;
   map<pair<int,int>,int> trueSlotsPrimary;
-  map<pair<int,int>,int> trueSlotsSecondary;
   map<pair<int,int>,int>::iterator iteratorPrimary;
-  map<pair<int,int>,int>::iterator iteratorSecondary;
-
 
   int height;
   int width;
   int popPercent;
-  int ranNum1;
-  int ranNum2;
 
   grid();
   ~grid();
@@ -32,7 +27,6 @@ public:
   void setGridsToFalse();
   bool compareGrids();
   void randomGenerateMap();
-
 
 private:
 

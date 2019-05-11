@@ -8,11 +8,6 @@ fileReader::fileReader(){
   line = "";
 }
 
-fileReader::fileReader(string targetFile) {
-  // myFile = targetFile;
-  line = "";
-}
-
 fileReader::~fileReader(){}
 //Opens a file and creates the grid in the file into an array
 grid fileReader::readFile(grid thisGrid, ifstream& myFile) {
@@ -20,7 +15,6 @@ grid fileReader::readFile(grid thisGrid, ifstream& myFile) {
   getline(myFile, line);
   cout << line << endl;
   thisGrid.height = stoi(line);
-
 
   //width
   getline(myFile, line);
@@ -36,7 +30,6 @@ grid fileReader::readFile(grid thisGrid, ifstream& myFile) {
       }
     }
   }
-
   myFile.close(); //closing file
   return thisGrid;
 }

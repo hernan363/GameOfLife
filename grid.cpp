@@ -11,8 +11,7 @@ grid::grid() {
 
 grid::~grid() {}
 
-//setting up the grids
-///////////////////////////////////////////////////////////////
+//setting up the grids///////////////////////////////////////////////////////////////
 void grid::setGridsToFalse() {
   gridPrimary = new bool*[height];
   gridSecondary = new bool*[height];
@@ -30,17 +29,12 @@ void grid::setGridsToFalse() {
 
 void grid::mapToGrid(){
   for(iteratorPrimary = trueSlotsPrimary.begin(); iteratorPrimary != trueSlotsPrimary.end();++iteratorPrimary) {
-
     if(iteratorPrimary->second <= 1 ) {
       gridPrimary[iteratorPrimary->first.first][iteratorPrimary->first.second] = false;
-    }
-
-    else if(iteratorPrimary->second == 3 ) {
+    } else if(iteratorPrimary->second == 3 ) {
       gridPrimary[iteratorPrimary->first.first][iteratorPrimary->first.second] = true;
 
-    }
-
-    else if(iteratorPrimary->second >= 4 ) {
+    } else if(iteratorPrimary->second >= 4 ) {
       gridPrimary[iteratorPrimary->first.first][iteratorPrimary->first.second] = false;
     }
   }
@@ -85,8 +79,7 @@ void grid::printAll(){
     for(int j = 0; j < width; ++j){
       if(gridPrimary[i][j] == true) {
         cout << "X";
-      }
-      else {
+      } else {
         cout << "-";
       }
     }
