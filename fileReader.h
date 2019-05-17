@@ -13,6 +13,7 @@ class fileReader {
     string fileName;
     ifstream myFile;
     string line;
+    int j;
   public:
     fileReader();
     ~fileReader();

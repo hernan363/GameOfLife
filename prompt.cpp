@@ -6,17 +6,19 @@
 #include "grid.h"
 
 using namespace std;
+
+//constructor
 prompt::prompt() {
   fileName = "";
-  grid g1;
   answer = "";
   mode = ' ';
-
-  // firstPrompt();
 }
 
+//destructor
 prompt::~prompt(){}
 
+
+//sets a given string to lower case
 string prompt::toLower(string s) {
   for(int i = 0; i < s.length(); ++i) {
     s[i] = tolower(s[i]);
@@ -24,6 +26,9 @@ string prompt::toLower(string s) {
   return s;
 }
 ///////////////////////PROMPTS///////////////////////////////////
+
+//Sanitizes the User's file input
+//calls a function to read a file or generate life
 void prompt::firstPrompt() {
   do {
     cout << "Would you like to simulate the Game of Life through a file?" << endl;
@@ -41,6 +46,8 @@ void prompt::firstPrompt() {
   }
 }
 
+//Sanitizes the User's file input
+//determines the mode for the rest of the program
 void prompt::secondPrompt() {
   do{
     cout << "What mode would you like to run in?" << endl;
@@ -53,6 +60,8 @@ void prompt::secondPrompt() {
   mode = answer[0];
 }
 
+//Sanitizes the User's file input
+//points to a function depending on the User's input
 void prompt::thirdPrompt() {
   do {
     cout << "Would you like a live display of the game?" << endl;
@@ -73,9 +82,16 @@ void prompt::thirdPrompt() {
 }
 
 //////////////////GENERATE FILE/////////////////////////////
+
+//Sanitizes the User's file input
+//reads the file and inserts the living indexes to
+//the hash map
+//initializes both the primary and secondary grids to
+//all 0's
+//fills the primary grid with the living indexes
+//from the hash map
 void prompt::readFilePrompt() {
 
-  //Sanitizes the User's file input
   do {
     cout << "Please name a file that can run the simulation: " << endl;
     cout << "(The text files I provided are: 'glider.txt' and 'gg.txt')" << endl;
@@ -84,20 +100,20 @@ void prompt::readFilePrompt() {
     targetFileInput.open(fileName.c_str());
   } while (! targetFileInput.good());
 
-  //reads the file and inserts the living indexes to
-  //the hash map
   g1 = fr.readFile(g1, targetFileInput);
-  //initializes both the primary and secondary grids to
-  //all 0's
   g1.setGridsToFalse();
-  //fills the primary grid with the living indexes
-  //from the hash map
   g1.mapToGrid();
 
   targetFileInput.close();  //closes file
 }
 
 ///////////////////////Generate LIFE/////////////////////////////////////
+
+//Sanitizes the User's file input
+//sets the population percentage, height, and
+//width for the simulation
+//creates and sets the Grids to False
+//performs a random generation on the primary grid and map
 
 void prompt::generateLife(float value) {
   do {
@@ -115,6 +131,7 @@ void prompt::generateLife(float value) {
   g1.randomGenerateMap();
 }
 
+//simply returns the height or width depending on what is needed
 int prompt::heightAndWidth(string s,int value) {
   do {
     cout << "What is the " << s << " of the grid you want to generate?" << endl;
@@ -129,6 +146,10 @@ int prompt::heightAndWidth(string s,int value) {
 
 ///////////////////////OUTPUT TO A FILE///////////////////////////////////////
 
+
+//Sanitizes the User's file input
+//creates a new file then converts the grid to a string
+//finally it writes the string into the file
 void prompt::output(int counter) {
   cout << "What is the name of the file you want to outputting to?" << endl;
   cout << endl;
@@ -149,6 +170,7 @@ void prompt::output(int counter) {
   targetFileOutput.close();
 }
 
+//converts the grid to a string
 string prompt::outputFileToString(string tempString) {
   for(int i = 0; i < g1.height; ++i) {
     for(int j = 0; j < g1.width; ++j) {
@@ -163,6 +185,9 @@ string prompt::outputFileToString(string tempString) {
   return tempString;
 }
 /////////////////////////SIMULATIONS////////////////////////////////////////////
+
+//depending on the mode it returns the corresponding map
+//with the neighbor count
 void prompt::returnMapDeterminedByMode() {
   switch (mode) {
     case 'c':
@@ -180,6 +205,9 @@ void prompt::returnMapDeterminedByMode() {
   }
 }
 
+
+//generates the User Experience with pauses in between
+//each generation
 void prompt::simulationWithPauses(int counter) {
   while(!(g1.compareGrids()) && counter != 1000) {
     getchar();

@@ -6,22 +6,22 @@
 fileReader::fileReader(){
   fileName = "";
   line = "";
+  j = -1;
 }
 
 fileReader::~fileReader(){}
-//Opens a file and creates the grid in the file into an array
+//takes in a grid to be able to set the width, height, and map with coordinates
+//that are alive.
+//Opens the user's file
+//stores the first 2 lines into height and width
+//sets the coordinates to true in the map
+//returns the grid
 grid fileReader::readFile(grid thisGrid, ifstream& myFile) {
-  //height
   getline(myFile, line);
   cout << line << endl;
   thisGrid.height = stoi(line);
-
-  //width
   getline(myFile, line);
   thisGrid.width = stoi(line);
-
-  int j = -1;
-  //O(N*M) where N is the number of lines and M is the length of the Line
   while(getline(myFile, line)) {
     j += 1;
     for(int i = 0; i < line.length(); ++i){
@@ -30,7 +30,7 @@ grid fileReader::readFile(grid thisGrid, ifstream& myFile) {
       }
     }
   }
-  myFile.close(); //closing file
+  myFile.close();
   return thisGrid;
 }
 

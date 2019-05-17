@@ -27,22 +27,23 @@ void grid::setGridsToFalse() {
   }
 }
 
+//iterates through the map with all the alive coordinates
+//changes the primary grid according to the neighbor count
 void grid::mapToGrid(){
   for(iteratorPrimary = trueSlotsPrimary.begin(); iteratorPrimary != trueSlotsPrimary.end();++iteratorPrimary) {
     if(iteratorPrimary->second <= 1 ) {
       gridPrimary[iteratorPrimary->first.first][iteratorPrimary->first.second] = false;
     } else if(iteratorPrimary->second == 3 ) {
       gridPrimary[iteratorPrimary->first.first][iteratorPrimary->first.second] = true;
-
     } else if(iteratorPrimary->second >= 4 ) {
       gridPrimary[iteratorPrimary->first.first][iteratorPrimary->first.second] = false;
     }
   }
 }
 
+//randomly generates coordinates that are alive
+//then changes the primary grid accordingly
 void grid::randomGenerateMap() {
-
-  //percent becomes the number of living squares we have to generate
   for(int i = 0; i < height; ++i) {
     for(int j = 0; j < width; ++j) {
       if(rand() % 100+1 <= popPercent) {
@@ -55,6 +56,9 @@ void grid::randomGenerateMap() {
 }
 
 ///////////////////////////////////////////////////////////////////////
+
+//compares the primary and secondary grid to
+//make sure they are not the same
 bool grid::compareGrids() {
   for(int i = 0; i < height; ++i) {
     for(int j = 0; j < width; ++j) {
@@ -66,6 +70,7 @@ bool grid::compareGrids() {
   return true;
 }
 
+//transfers the primary grid to the secondary grid
 void grid::setGridSecondary() {
   for(int i = 0; i < height; ++i) {
     for(int j = 0; j < width; ++j) {
@@ -74,6 +79,7 @@ void grid::setGridSecondary() {
   }
 }
 
+//prints the primary grid
 void grid::printAll(){
   for(int i = 0; i < height; ++i) {
     for(int j = 0; j < width; ++j){
