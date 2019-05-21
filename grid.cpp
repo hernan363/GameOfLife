@@ -13,30 +13,30 @@ grid::~grid() {}
 
 //setting up the grids///////////////////////////////////////////////////////////////
 void grid::setGridsToFalse() {
-  gridPrimary = new bool*[height];
-  gridSecondary = new bool*[height];
+  primaryG = new bool*[height];
+  secondaryG = new bool*[height];
 
   for(int i = 0; i < height; ++i) {
-    gridPrimary[i] = new bool[width];
-    gridSecondary[i] = new bool[width];
+    primaryG[i] = new bool[width];
+    secondaryG[i] = new bool[width];
 
     for(int j = 0; j < width; ++j){
-      gridPrimary[i][j] = false;
-      gridSecondary[i][j] = false;
+      primaryG[i][j] = false;
+      secondaryG[i][j] = false;
     }
   }
 }
 
 //iterates through the map with all the alive coordinates
-//changes the primary grid according to the neighbor count
+//changes the primaryG grid according to the neighbor count
 void grid::mapToGrid(){
-  for(iteratorPrimary = trueSlotsPrimary.begin(); iteratorPrimary != trueSlotsPrimary.end();++iteratorPrimary) {
-    if(iteratorPrimary->second <= 1 ) {
-      gridPrimary[iteratorPrimary->first.first][iteratorPrimary->first.second] = false;
-    } else if(iteratorPrimary->second == 3 ) {
-      gridPrimary[iteratorPrimary->first.first][iteratorPrimary->first.second] = true;
-    } else if(iteratorPrimary->second >= 4 ) {
-      gridPrimary[iteratorPrimary->first.first][iteratorPrimary->first.second] = false;
+  for(it = trueSlots.begin(); it != trueSlots.end();++it) {
+    if(it->second <= 1 ) {
+      primaryG[it->first.first][it->first.second] = false;
+    } else if(it->second == 3 ) {
+      primaryG[it->first.first][it->first.second] = true;
+    } else if(it->second >= 4 ) {
+      primaryG[it->first.first][it->first.second] = false;
     }
   }
 }
@@ -47,8 +47,8 @@ void grid::randomGenerateMap() {
   for(int i = 0; i < height; ++i) {
     for(int j = 0; j < width; ++j) {
       if(rand() % 100+1 <= popPercent) {
-        trueSlotsPrimary[make_pair(j,i)] = 3;
-        gridPrimary[i][j] = true;
+        trueSlots[make_pair(j,i)] = 3;
+        primaryG[i][j] = true;
 
       }
     }
@@ -62,7 +62,7 @@ void grid::randomGenerateMap() {
 bool grid::compareGrids() {
   for(int i = 0; i < height; ++i) {
     for(int j = 0; j < width; ++j) {
-      if(gridPrimary[i][j] != gridSecondary[i][j]) {
+      if(primaryG[i][j] != secondaryG[i][j]) {
         return false;
       }
     }
@@ -71,10 +71,10 @@ bool grid::compareGrids() {
 }
 
 //transfers the primary grid to the secondary grid
-void grid::setGridSecondary() {
+void grid::setSecondaryGrid() {
   for(int i = 0; i < height; ++i) {
     for(int j = 0; j < width; ++j) {
-      gridSecondary[i][j] = gridPrimary[i][j];
+      secondaryG[i][j] = primaryG[i][j];
     }
   }
 }
@@ -83,7 +83,7 @@ void grid::setGridSecondary() {
 void grid::printAll(){
   for(int i = 0; i < height; ++i) {
     for(int j = 0; j < width; ++j){
-      if(gridPrimary[i][j] == true) {
+      if(primaryG[i][j] == true) {
         cout << "X";
       } else {
         cout << "-";

@@ -4,6 +4,8 @@
 using namespace std;
 
 int main(int argc, char const *argv[]){
+
+  //execs the programs through the prompt file
   prompt c;
   c.firstPrompt();
   c.secondPrompt();

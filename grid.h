@@ -9,10 +9,10 @@ using namespace std;
 
 class grid {
 public:
-  bool** gridPrimary;
-  bool** gridSecondary;
-  map<pair<int,int>,int> trueSlotsPrimary;
-  map<pair<int,int>,int>::iterator iteratorPrimary;
+  bool** primaryG; // Primary Grid
+  bool** secondaryG; // Secondary Grid
+  map<pair<int,int>,int> trueSlots; // Only the true slots
+  map<pair<int,int>,int>::iterator it; // iterator
 
   int height;
   int width;
@@ -20,7 +20,7 @@ public:
 
   grid();
   ~grid();
-  void setGridSecondary();
+  void setSecondaryGrid();
 
   void printAll();
   void mapToGrid();

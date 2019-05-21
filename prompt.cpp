@@ -161,7 +161,7 @@ void prompt::output(int counter) {
     targetFileOutput << "\n";
     targetFileOutput << "\n";
 
-    g1.setGridSecondary();
+    g1.setSecondaryGrid();
     returnMapDeterminedByMode();
     g1.mapToGrid();
     targetFileOutput << outputFileToString("");
@@ -174,7 +174,7 @@ void prompt::output(int counter) {
 string prompt::outputFileToString(string tempString) {
   for(int i = 0; i < g1.height; ++i) {
     for(int j = 0; j < g1.width; ++j) {
-      if(g1.gridPrimary[i][j] == false) {
+      if(g1.primaryG[i][j] == false) {
         tempString.append("-");
       } else {
         tempString.append("X");
@@ -191,15 +191,15 @@ string prompt::outputFileToString(string tempString) {
 void prompt::returnMapDeterminedByMode() {
   switch (mode) {
     case 'c':
-      g1.trueSlotsPrimary = c1.classicNeighborCount(g1);
+      g1.trueSlots = c1.classicNeighborCount(g1);
       break;
 
     case 'd':
-      g1.trueSlotsPrimary = d1.doughnutNeighborCount(g1);
+      g1.trueSlots = d1.doughnutNeighborCount(g1);
       break;
 
     case 'm':
-      g1.trueSlotsPrimary = m1.mirrorNeighborCount(g1);
+      g1.trueSlots = m1.mirrorNeighborCount(g1);
       break;
 
   }
@@ -211,7 +211,7 @@ void prompt::returnMapDeterminedByMode() {
 void prompt::simulationWithPauses(int counter) {
   while(!(g1.compareGrids()) && counter != 1000) {
     getchar();
-    g1.setGridSecondary();
+    g1.setSecondaryGrid();
     returnMapDeterminedByMode();
     g1.mapToGrid();
     g1.printAll();
