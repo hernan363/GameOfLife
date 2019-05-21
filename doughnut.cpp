@@ -13,29 +13,37 @@ doughnut::~doughnut(){}
 //-X-X-
 
 //Iterates through the PrimaryMap to find nodes that are true
-//then creates a 3 by 3 grid with the node at the center
-//it adds 1 to each neighbor that the grid has as long
-//as the neighbor is within the restrictions of mirror mode
+//then creates a 3 by 3 grid with the main coordinate at the center.
+//It adds 1 to each point of the grid has as long
+//as the points are within the restrictions of doughnut mode.
 
-//this is tricky because the idea is to be a circular dougnut so it wraps
-//around continuously
-//I have to look at the corners and the coordinates on the edge, but
-//inbetween the corners
-//My idea was to create two major if statements that determines if the
-//coordinates
-//add 1 to the neighbor count of the N's in the diagram
+//This is tricky because the idea is to be a circular dougnut so it wraps
+//around to make a continuous loop.
+//My idea was to create if statements that filter out the special conditions
+//then run a standard simulation.
+//A standard simulation adds 1 to every single neighbor around the
+//coordinate.
+//The special conditions are as such in the examples below.
+//They consist of the corners (example 1) and the edges (example 2).
+//The corners have to wrap around to the opposite sides.
+//Add 1 to the neighbor count of the N's in the diagram.
 
+//X is the targeted coordinate.
+//N is the neighbor to the target.
+
+//corners
 //example 1:
 //N----NX
 //-----NN
 //N------
 //NN----N
 
-//example 2:
-//--NXN--
-//--NNN--
-//-------
-//--NNN--
+//edges
+//example 2:     example 3:
+//--NXN--        -------
+//--NNN--        NN----N
+//-------        XN----N
+//--NNN--        NN----N
 
 
 map<pair<int,int>,int> doughnut::doughnutNeighborCount(grid g1) {

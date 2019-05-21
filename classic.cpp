@@ -7,9 +7,12 @@ classic::classic(){}
 classic::~classic(){}
 
 //Iterates through the PrimaryMap to find nodes that are true
-//then creates a 3 by 3 grid with the node at the center
-//it adds 1 to each neighbor that the grid has as long
-//as the neighbor is within the restrictions of classic mode
+//then creates a 3 by 3 grid with the node at the center.
+//It adds 1 to each neighbor that the grid has as long
+//as the neighbor is within the restrictions of classic mode.
+
+//This is the most basic of the 3 modes
+
 map<pair<int,int>,int> classic::classicNeighborCount(grid g1) {
   map<pair<int,int>,int> tempMap;
 

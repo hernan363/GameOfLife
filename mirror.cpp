@@ -13,30 +13,40 @@ mirror::~mirror(){}
 //-X-X-
 
 //Iterates through the PrimaryMap to find nodes that are true
-//then creates a 3 by 3 grid with the node at the center
-//it adds 1 to each neighbor that the grid has as long
-//as the neighbor is within the restrictions of mirror mode
+//then creates a 3 by 3 grid with the node at the center.
+//It adds 1 to each neighbor that the grid has as long
+//as the neighbor is within the restrictions of mirror mode.
 
-//this is tricky because the walls reflect back
-//My idea was to split the program into two parts
-//Because the walls are solid in this case, it is similar to classic mode
-//The first part of the program takes care of the reflecting issues
+//This is tricky because the walls reflect the coordinate back.
+//My idea was to split the program into two parts.
+//The first part of the program takes care of the mirror reflecting issues,
 //then the second part runs classic mode to fill in the gaps.
 
-//It looks for each of the corners and adds 3 to the corner for the surrounding neightbors
-//this is illustrated by the N's in the diagram
-//Then I add 1 to the J's because the N's at the end of the corner are neighboring the J's
+//It looks for each of the corners and adds 3 to the corner for the
+//surrounding neightbors.
+//This is illustrated by the N's in the diagram.
+//I add 1 to the J's because the N's at the end of the corner are
+//neighboring the J's
+
 //NN
 //NXj--
 // j---
 
-//The next special condition are coordinates on the edge of the grid but inbetween the corners.
-//The node is reflected off the mirror and affects the neighbor count of 3 coordinates which are
+//The next special condition are coordinates on the edge of the grid
+//but inbetween the corners.
+//The node is reflected off the mirror and affects the neighbor count
+//of 3 coordinates which are
 //the original coordinate and its two neighbors.
-//If X is the coordinate that is alive, we add 1 to the neighbor count of both N's and X in the diagram
+//If X is the coordinate that is alive, we add 1 to the neighbor
+//count of both N's and X in the diagram
+
 //--NXN--
 //-------
 //-------
+
+//Notice how I am not adding anything to the neighbors below the targeted
+//coordinate. This is because classic mode will target those neighbors in
+//the second part.
 
 //after all this the second part runs (classic mode)
 
