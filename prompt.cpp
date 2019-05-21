@@ -215,6 +215,7 @@ void prompt::simulationWithPauses(int counter) {
     returnMapDeterminedByMode();
     g1.mapToGrid();
     g1.printAll();
+    cout << "Game Generatation: " << counter << endl;
     ++counter;
   }
 }

@@ -17,9 +17,9 @@ using namespace std;
 
 class prompt {
   private:
-    string fileName;
-    string answer;
-    char mode;
+    string fileName; //input file name
+    string answer; // a string for every answer the user gives
+    char mode; // dtermines the mode
 
     fileReader newGrid;
     fileReader fr;
