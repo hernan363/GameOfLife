@@ -1,14 +1,19 @@
 # GameOfLife
 
 David Hernandez
+
 Email: herna363@mail.chapman.edu
-https://www.linkedin.com/in/david-hernandez7/
+
+LinkedIn: https://www.linkedin.com/in/david-hernandez7/
 
 Link to the Code Requirements:
+
 https://drive.google.com/file/d/1I4Me-Ff94EsNiX3HTIQhRj9tE-wUmpqV/view?usp=sharing
 
-Steps to run code:
+Commands to run code:
+
 make
+
 ./a.out
 
 Follow the prompts to simulate the Game. If you are prompted to provide a file,
