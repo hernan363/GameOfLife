@@ -1,7 +1,6 @@
 #ifndef CLASSIC_H
 #define CLASSIC_H
 
-#include <iostream>
 #include <map>
 #include "grid.h"
 

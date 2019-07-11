@@ -1,7 +1,6 @@
 #ifndef FILEREADER_H
 #define FILEREADER_H
 
-#include <iostream>
 #include <fstream>
 #include <map>
 #include "grid.h"

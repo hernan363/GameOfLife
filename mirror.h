@@ -1,7 +1,6 @@
 #ifndef MIRROR_H
 #define MIRROR_H
 
-#include <iostream>
 #include <map>
 #include "grid.h"
 

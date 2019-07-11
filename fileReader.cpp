@@ -18,7 +18,6 @@ fileReader::~fileReader(){}
 //returns the grid
 grid fileReader::readFile(grid thisGrid, ifstream& myFile) {
   getline(myFile, line);
-  cout << line << endl;
   thisGrid.height = stoi(line);
   getline(myFile, line);
   thisGrid.width = stoi(line);

@@ -17,7 +17,6 @@ prompt::prompt() {
 //destructor
 prompt::~prompt(){}
 
-
 //sets a given string to lower case
 string prompt::toLower(string s) {
   for(int i = 0; i < s.length(); ++i) {
@@ -26,9 +25,9 @@ string prompt::toLower(string s) {
   return s;
 }
 ///////////////////////PROMPTS///////////////////////////////////
-
 //Sanitizes the User's file input
 //calls a function to read a file or generate life
+
 void prompt::firstPrompt() {
   do {
     cout << "Would you like to simulate the Game of Life through a file?" << endl;
@@ -82,7 +81,6 @@ void prompt::thirdPrompt() {
 }
 
 //////////////////GENERATE FILE/////////////////////////////
-
 //Sanitizes the User's file input
 //reads the file and inserts the living indexes to
 //the hash map
@@ -90,6 +88,7 @@ void prompt::thirdPrompt() {
 //all 0's
 //fills the primary grid with the living indexes
 //from the hash map
+
 void prompt::readFilePrompt() {
 
   do {
@@ -108,7 +107,6 @@ void prompt::readFilePrompt() {
 }
 
 ///////////////////////Generate LIFE/////////////////////////////////////
-
 //Sanitizes the User's file input
 //sets the population percentage, height, and
 //width for the simulation
@@ -145,11 +143,10 @@ int prompt::heightAndWidth(string s,int value) {
 }
 
 ///////////////////////OUTPUT TO A FILE///////////////////////////////////////
-
-
 //Sanitizes the User's file input
 //creates a new file then converts the grid to a string
 //finally it writes the string into the file
+
 void prompt::output(int counter) {
   cout << "What is the name of the file you want to outputting to?" << endl;
   cout << endl;
@@ -185,9 +182,9 @@ string prompt::outputFileToString(string tempString) {
   return tempString;
 }
 /////////////////////////SIMULATIONS////////////////////////////////////////////
-
 //depending on the mode it returns the corresponding map
 //with the neighbor count
+
 void prompt::returnMapDeterminedByMode() {
   switch (mode) {
     case 'c':
@@ -201,10 +198,8 @@ void prompt::returnMapDeterminedByMode() {
     case 'm':
       g1.trueSlots = m1.mirrorNeighborCount(g1);
       break;
-
   }
 }
-
 
 //generates the User Experience with pauses in between
 //each generation
