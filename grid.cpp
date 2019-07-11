@@ -47,7 +47,7 @@ void grid::randomGenerateMap() {
   for(int i = 0; i < height; ++i) {
     for(int j = 0; j < width; ++j) {
       if(rand() % 100+1 <= popPercent) {
-        trueSlots[make_pair(j,i)] = 3;
+        trueSlots[make_pair(i,j)] = 3;
         primaryG[i][j] = true;
 
       }
